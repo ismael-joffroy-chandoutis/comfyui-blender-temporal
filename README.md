@@ -1,6 +1,7 @@
+**English** · [Français](README.fr.md)
+
 # comfyui-blender-temporal
 
-**English** · [Français](README.fr.md)
 
 **ComfyUI custom nodes for loading Blender EXR depth and normal passes as ControlNet conditioning.**
 

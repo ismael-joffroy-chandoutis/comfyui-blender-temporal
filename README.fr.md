@@ -1,6 +1,7 @@
+[English](README.md) · **Français**
+
 # comfyui-blender-temporal
 
-[English](README.md) · **Français**
 
 **Nodes personnalisés ComfyUI pour charger les passes EXR de profondeur et de normales Blender en tant que conditionnement ControlNet.**
 
