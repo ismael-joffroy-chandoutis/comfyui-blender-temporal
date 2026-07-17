@@ -1,5 +1,7 @@
 # comfyui-blender-temporal
 
+**English** · [Français](README.fr.md)
+
 **ComfyUI custom nodes for loading Blender EXR depth and normal passes as ControlNet conditioning.**
 
 Built for AI cinema production. Solves temporal consistency for long-form video generation.
@@ -163,7 +165,7 @@ Search for `comfyui-blender-temporal` in ComfyUI Manager.
 
 ```bash
 cd ComfyUI/custom_nodes/
-git clone https://github.com/12georgiadis/comfyui-blender-temporal
+git clone https://github.com/ismael-joffroy-chandoutis/comfyui-blender-temporal
 cd comfyui-blender-temporal
 pip install -r requirements.txt
 ```
@@ -242,7 +244,7 @@ Tested with: Blender 4.1+, ComfyUI latest, ControlNet v1.1 depth/normal models.
 
 ## Related work
 
-- [comfyui-cinema-pipeline](https://github.com/12georgiadis/comfyui-cinema-pipeline) — 70+ production workflows that use these nodes
+- [comfyui-cinema-pipeline](https://github.com/ismael-joffroy-chandoutis/comfyui-cinema-pipeline) — 70+ production workflows that use these nodes
 - [kentskooking-nodes](https://github.com/Kentskooking/kentskooking-nodes) — wave-controlled vid2vid workflows
 
 ---
