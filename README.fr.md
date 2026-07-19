@@ -7,6 +7,8 @@
 
 Conçu pour la production cinéma IA. Résout la cohérence temporelle pour la génération vidéo longue.
 
+<img src="monde.jpg" alt="comfyui-blender-temporal" width="100%">
+
 ---
 
 ## Le problème

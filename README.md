@@ -7,6 +7,8 @@
 
 Built for AI cinema production. Solves temporal consistency for long-form video generation.
 
+<img src="monde.jpg" alt="comfyui-blender-temporal" width="100%">
+
 ---
 
 ## The problem
