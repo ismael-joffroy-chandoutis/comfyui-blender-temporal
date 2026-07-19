@@ -173,7 +173,7 @@ cd comfyui-blender-temporal
 pip install -r requirements.txt
 ```
 
-Redémarrer ComfyUI. Les nodes apparaissent sous `blender-temporal/` dans le navigateur de nodes.
+Redémarrer ComfyUI. Les nodes apparaissent sous `blender-temporal/loaders` (les trois loaders EXR) et `blender-temporal/utils` (Depth Normalizer) dans le navigateur de nodes.
 
 ---
 
@@ -252,8 +252,18 @@ Testé avec : Blender 4.1+, ComfyUI dernière version, modèles ControlNet v1.1 
 
 ---
 
+## Licence
+
+PolyForm Noncommercial License 1.0.0. Libre d'usage, de modification et de partage pour tout usage non commercial. L'usage commercial n'est pas autorisé. Conditions complètes dans [LICENSE.md](LICENSE.md).
+
+## Citation
+
+Les métadonnées de citation sont dans [CITATION.cff](CITATION.cff) ; GitHub les lit pour générer l'entrée « Citer ce dépôt ».
+
+---
+
 ## Auteur
 
 Ismaël Joffroy Chandoutis — cinéaste, César 2022. Construit des pipelines IA pour la production cinéma.
 
-[ismaeljoffroychandoutis.com](https://ismaeljoffroychandoutis.com) · [Vimeo](https://vimeo.com/ismaeljoffroychandoutis) · [Hugging Face](https://huggingface.co/12georgiadis)
+[ismaeljoffroychandoutis.com](https://ismaeljoffroychandoutis.com) · [Vimeo](https://vimeo.com/user4983240) · [Hugging Face](https://huggingface.co/12georgiadis)
