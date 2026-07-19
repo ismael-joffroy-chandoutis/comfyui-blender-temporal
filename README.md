@@ -15,7 +15,7 @@ Built for AI cinema production. Solves temporal consistency for long-form video 
 
 Every AI video tool struggles with the same thing: frame-to-frame consistency. Hair, clothes, micro-details drift between shots. LoRA helps with character identity. It does nothing for scene structure.
 
-The actual solution is structural conditioning — feeding spatial data from 3D into the diffusion process frame by frame. Blender already generates this data. It just needs to reach ComfyUI in a usable form.
+The actual solution is structural conditioning: feeding spatial data from 3D into the diffusion process frame by frame. Blender already generates this data. It just needs to reach ComfyUI in a usable form.
 
 That's what this does.
 
@@ -23,7 +23,7 @@ That's what this does.
 
 ## What it does
 
-Blender exports depth and normal passes as EXR files. These contain raw scene data — actual Z distances in scene units, normal vectors in float RGB. Useful for 3D rendering. Incompatible with ControlNet out of the box.
+Blender exports depth and normal passes as EXR files. These contain raw scene data: actual Z distances in scene units, normal vectors in float RGB. Useful for 3D rendering. Incompatible with ControlNet out of the box.
 
 These nodes bridge the gap:
 
@@ -40,7 +40,7 @@ Blender render
             │                      │
             ▼                      ▼
         BlenderEXRNormalLoader    Video generation
-        (–1/1 → 0/1, flip Y)      with temporal consistency
+        (-1/1 → 0/1, flip Y)      with temporal consistency
 ```
 
 For shot sequences:
@@ -92,7 +92,7 @@ Loads a single Blender normal pass and converts it for ControlNet Normal conditi
 |---|---|---|
 | `normal_image` | IMAGE | RGB normal map in [0, 1], ControlNet-ready |
 
-Blender stores normals in camera space as float RGB with values in [–1, 1]. This node remaps to [0, 1] and handles axis conventions.
+Blender stores normals in camera space as float RGB with values in [-1, 1]. This node remaps to [0, 1] and handles axis conventions.
 
 ---
 
@@ -113,7 +113,7 @@ Loads an entire frame sequence from a folder as a single batch tensor.
 
 | Output | Type | Description |
 |---|---|---|
-| `batch_frames` | IMAGE | B×H×W×3 batch — feed directly to temporal ControlNet |
+| `batch_frames` | IMAGE | B×H×W×3 batch, feed directly to temporal ControlNet |
 
 Expects Blender's standard sequential numbering: `name_0001.exr`, `name_0002.exr`, etc.
 
@@ -132,9 +132,9 @@ Normalize any depth map for ControlNet conditioning. Works with depth images fro
 | `percentile_low` / `percentile_high` | FLOAT | (percentile method) outlier cutoffs |
 
 **Methods:**
-- `minmax` — linear stretch to full [0, 1] range. Fast. Sensitive to outliers.
-- `percentile` — robust stretch, ignores extreme values. Recommended for real shots.
-- `fixed` — explicit near/far. Use when processing matched multi-frame batches that must share the same normalization.
+- `minmax`: linear stretch to full [0, 1] range. Fast. Sensitive to outliers.
+- `percentile`: robust stretch, ignores extreme values. Recommended for real shots.
+- `fixed`: explicit near/far. Use when processing matched multi-frame batches that must share the same normalization.
 
 | Output | Type | Description |
 |---|---|---|
@@ -228,7 +228,7 @@ Preprocessors estimate depth from the final rendered image. They don't know your
 - Characters in front of similarly-lit backgrounds
 - Anything where the geometry is ambiguous from color alone
 
-Blender's Z pass is ground truth — actual scene unit distances from the camera, per pixel, per frame, without estimation error. For scripted sequences where you control the 3D, there's no reason to use a preprocessor.
+Blender's Z pass is ground truth: actual scene unit distances from the camera, per pixel, per frame, without estimation error. For scripted sequences where you control the 3D, there's no reason to use a preprocessor.
 
 ---
 
@@ -247,8 +247,8 @@ Tested with: Blender 4.1+, ComfyUI latest, ControlNet v1.1 depth/normal models.
 
 ## Related work
 
-- [comfyui-cinema-pipeline](https://github.com/ismael-joffroy-chandoutis/comfyui-cinema-pipeline) — 70+ production workflows that use these nodes
-- [kentskooking-nodes](https://github.com/Kentskooking/kentskooking-nodes) — wave-controlled vid2vid workflows
+- [comfyui-cinema-pipeline](https://github.com/ismael-joffroy-chandoutis/comfyui-cinema-pipeline): 70+ production workflows that use these nodes
+- [kentskooking-nodes](https://github.com/Kentskooking/kentskooking-nodes): wave-controlled vid2vid workflows
 
 ---
 
@@ -264,6 +264,6 @@ Citation metadata lives in [CITATION.cff](CITATION.cff); GitHub reads it to buil
 
 ## Author
 
-Ismaël Joffroy Chandoutis — filmmaker, César 2022. Building AI pipelines for cinema production.
+Ismaël Joffroy Chandoutis. Filmmaker, César 2022. Building AI pipelines for cinema production.
 
 [ismaeljoffroychandoutis.com](https://ismaeljoffroychandoutis.com) · [Vimeo](https://vimeo.com/user4983240) · [Hugging Face](https://huggingface.co/12georgiadis)

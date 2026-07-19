@@ -40,7 +40,7 @@ Rendu Blender
             │                      │
             ▼                      ▼
         BlenderEXRNormalLoader    Génération vidéo
-        (–1/1 → 0/1, flip Y)      avec cohérence temporelle
+        (-1/1 → 0/1, flip Y)      avec cohérence temporelle
 ```
 
 Pour des séquences de plans :
@@ -92,7 +92,7 @@ Charge une passe unique de normales Blender et la convertit pour le conditionnem
 |---|---|---|
 | `normal_image` | IMAGE | Carte de normales RGB sur [0, 1], prête pour ControlNet |
 
-Blender stocke les normales dans l'espace caméra en RGB flottant avec des valeurs sur [–1, 1]. Ce node les remappe sur [0, 1] et gère les conventions d'axes.
+Blender stocke les normales dans l'espace caméra en RGB flottant avec des valeurs sur [-1, 1]. Ce node les remappe sur [0, 1] et gère les conventions d'axes.
 
 ---
 
@@ -113,7 +113,7 @@ Charge une séquence complète d'images depuis un dossier sous forme d'un unique
 
 | Sortie | Type | Description |
 |---|---|---|
-| `batch_frames` | IMAGE | Batch B×H×W×3 — à injecter directement dans un ControlNet temporel |
+| `batch_frames` | IMAGE | Batch B×H×W×3, à injecter directement dans un ControlNet temporel |
 
 Suppose la numérotation séquentielle standard de Blender : `name_0001.exr`, `name_0002.exr`, etc.
 
@@ -132,9 +132,9 @@ Normalise n'importe quelle carte de profondeur pour le conditionnement ControlNe
 | `percentile_low` / `percentile_high` | FLOAT | (méthode percentile) seuils d'écrêtage des valeurs aberrantes |
 
 **Méthodes :**
-- `minmax` — étirement linéaire sur la pleine plage [0, 1]. Rapide. Sensible aux valeurs aberrantes.
-- `percentile` — étirement robuste, ignore les valeurs extrêmes. Recommandé pour les plans réels.
-- `fixed` — near/far explicites. À utiliser quand on traite des batchs multi-images appariés qui doivent partager la même normalisation.
+- `minmax` : étirement linéaire sur la pleine plage [0, 1]. Rapide. Sensible aux valeurs aberrantes.
+- `percentile` : étirement robuste, ignore les valeurs extrêmes. Recommandé pour les plans réels.
+- `fixed` : near/far explicites. À utiliser quand on traite des batchs multi-images appariés qui doivent partager la même normalisation.
 
 | Sortie | Type | Description |
 |---|---|---|
@@ -247,8 +247,8 @@ Testé avec : Blender 4.1+, ComfyUI dernière version, modèles ControlNet v1.1 
 
 ## Travaux liés
 
-- [comfyui-cinema-pipeline](https://github.com/ismael-joffroy-chandoutis/comfyui-cinema-pipeline) — 70+ workflows de production qui utilisent ces nodes
-- [kentskooking-nodes](https://github.com/Kentskooking/kentskooking-nodes) — workflows vid2vid pilotés par ondes
+- [comfyui-cinema-pipeline](https://github.com/ismael-joffroy-chandoutis/comfyui-cinema-pipeline) : 70+ workflows de production qui utilisent ces nodes
+- [kentskooking-nodes](https://github.com/Kentskooking/kentskooking-nodes) : workflows vid2vid pilotés par ondes
 
 ---
 
@@ -264,6 +264,6 @@ Les métadonnées de citation sont dans [CITATION.cff](CITATION.cff) ; GitHub le
 
 ## Auteur
 
-Ismaël Joffroy Chandoutis — cinéaste, César 2022. Construit des pipelines IA pour la production cinéma.
+Ismaël Joffroy Chandoutis. Cinéaste, César 2022. Construit des pipelines IA pour la production cinéma.
 
 [ismaeljoffroychandoutis.com](https://ismaeljoffroychandoutis.com) · [Vimeo](https://vimeo.com/user4983240) · [Hugging Face](https://huggingface.co/12georgiadis)

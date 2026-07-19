@@ -68,7 +68,7 @@ class BlenderEXRDepthLoader:
     Load Blender's Z depth pass from EXR.
 
     Blender exports raw scene-unit Z distances. This node normalizes them
-    to [0, 1] using your camera's near/far clipping planes — exactly what
+    to [0, 1] using your camera's near/far clipping planes, exactly what
     ControlNet depth preprocessors expect.
 
     Output: grayscale IMAGE (3ch) + MASK (1ch), both in [0, 1].
@@ -229,7 +229,7 @@ class BlenderPassBatchLoader:
         )
         if not frames_to_load:
             raise FileNotFoundError(
-                f"No EXR files for frames {start_frame}–{end_frame} in {folder_path}"
+                f"No EXR files for frames {start_frame}-{end_frame} in {folder_path}"
             )
 
         tensors = []
@@ -246,7 +246,7 @@ class BlenderPassBatchLoader:
                 (img,) = loader.load_normal(f, "blender_camera", flip_normal_y)
                 tensors.append(img)
 
-        else:  # rgb — load as-is
+        else:  # rgb, load as-is
             for f in frames_to_load:
                 if HAS_OPENEXR:
                     channels, _, _ = load_exr_channels(f)
@@ -295,7 +295,7 @@ class DepthNormalizer:
     def normalize(self, depth_image, method, invert,
                   near=0.0, far=1.0, percentile_low=2.0, percentile_high=98.0):
         arr = depth_image.numpy()
-        depth = arr[:, :, :, 0]  # B×H×W — take first channel
+        depth = arr[:, :, :, 0]  # B×H×W, take first channel
 
         if method == "minmax":
             lo, hi = depth.min(), depth.max()
