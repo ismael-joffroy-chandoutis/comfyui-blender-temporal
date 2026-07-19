@@ -2,7 +2,6 @@
 
 # comfyui-blender-temporal
 
-
 **ComfyUI custom nodes for loading Blender EXR depth and normal passes as ControlNet conditioning.**
 
 Built for AI cinema production. Solves temporal consistency for long-form video generation.

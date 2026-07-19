@@ -2,7 +2,6 @@
 
 # comfyui-blender-temporal
 
-
 **Nodes personnalisés ComfyUI pour charger les passes EXR de profondeur et de normales Blender en tant que conditionnement ControlNet.**
 
 Conçu pour la production cinéma IA. Résout la cohérence temporelle pour la génération vidéo longue.
